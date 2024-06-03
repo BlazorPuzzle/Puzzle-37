@@ -1,0 +1,37 @@
+﻿@page "/"
+@inject HttpClient httpClient
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+<button disabled=@buttonDisabled @onclick="GetData">Get Some Data</button>
+
+<p>
+    This is a Global WebAssembly Blazor Web App. Our code calls a Minimal API endpoint on the server
+    but it's throwing an exception. Why??
+</p>
+
+<h2>@Message</h2>
+
+
+@code {
+
+    string Message { get; set; } = string.Empty;
+    bool buttonDisabled = true;
+
+    private async Task GetData()
+    {
+        Message = await httpClient.GetStringAsync("data");
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            buttonDisabled = false;
+            StateHasChanged();
+        }
+    }
+
+}
