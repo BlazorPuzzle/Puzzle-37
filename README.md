@@ -2,7 +2,7 @@
 
 ## Minimal API Issue
 
-YouTube Video: https://youtu.be/
+YouTube Video: https://youtu.be/ncsI4qbXfUo
 
 Blazor Puzzle Home Page: https://blazorpuzzle.com
 
